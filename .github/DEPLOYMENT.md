@@ -2,26 +2,36 @@
 
 ## Setup Instructions
 
-### 1. Enable GitHub Pages
+### 1. Enable GitHub Pages (CRITICAL - Do This First!)
 
-1. Go to your repository on GitHub: `https://github.com/YOUR_USERNAME/misty`
-2. Click on **Settings** tab
-3. Scroll down to **Pages** section in the left sidebar
-4. Under **Source**, select:
-   - Source: **GitHub Actions**
-5. Save the settings
+1. Go to: `https://github.com/rish-0-0/misty/settings/pages`
+2. Under **"Build and deployment"**:
+   - **Source**: Select `GitHub Actions` (NOT "Deploy from a branch")
+3. Click **Save**
 
-### 2. Deploy
+**Important Notes**:
+- If you don't see the Pages option, ensure your repository is **public**
+- Or you need GitHub Pro/Teams for private repository Pages
 
-The deployment will happen automatically when you:
+### 2. Configure Workflow Permissions
+
+1. Go to: `https://github.com/rish-0-0/misty/settings/actions`
+2. Scroll to **"Workflow permissions"**
+3. Select ✅ `Read and write permissions`
+4. Check ✅ `Allow GitHub Actions to create and approve pull requests`
+5. Click **Save**
+
+### 3. Deploy
+
+After setup, deployment happens automatically when you:
 - Push to the `main` branch
-- Or manually trigger the workflow from the Actions tab
+- Or manually trigger from the Actions tab
 
-### 3. Access Your Site
+### 4. Access Your Site
 
 Once deployed, your site will be available at:
 ```
-https://YOUR_USERNAME.github.io/misty/
+https://rish-0-0.github.io/misty/
 ```
 
 ## Workflow Details
@@ -56,12 +66,29 @@ This ensures all asset paths work correctly when deployed to `github.io/misty/`.
 
 ## Troubleshooting
 
-If the deployment fails:
+### Error: "Not Found" or "Failed to create deployment (status: 404)"
 
-1. Check the **Actions** tab for error logs
-2. Ensure you've enabled GitHub Pages in Settings
-3. Verify the source is set to "GitHub Actions"
-4. Check that the repository has Pages permissions enabled
+This means GitHub Pages is not enabled. Fix:
+
+1. ✅ Go to `Settings` → `Pages`
+2. ✅ Set Source to `GitHub Actions`
+3. ✅ Click Save
+4. ✅ Re-run the failed workflow
+
+### Error: "Deployment failed" or "Permission denied"
+
+This means workflow permissions are incorrect. Fix:
+
+1. ✅ Go to `Settings` → `Actions` → `General`
+2. ✅ Set "Workflow permissions" to `Read and write permissions`
+3. ✅ Enable "Allow GitHub Actions to create and approve pull requests"
+4. ✅ Re-run the workflow
+
+### Other Common Issues
+
+1. **Repository is private**: Make it public or upgrade to GitHub Pro
+2. **Check the Actions tab**: Look for detailed error logs
+3. **Verify Node.js version**: Workflow uses Node.js 22
 
 ## Local Testing
 
