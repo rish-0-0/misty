@@ -1,0 +1,17 @@
+# Long-running code example to test cancellation
+
+# Recursive Fibonacci - very slow for large numbers
+procedure fibRecursive(n) {
+  incase (n <= 1) {
+    returns n;
+  }
+  returns fibRecursive(n - 1) + fibRecursive(n - 2);
+}
+
+# This will take a very long time - perfect for testing cancellation!
+System.out.console("Starting long computation...");
+System.out.console("Computing fibRecursive(30)...");
+System.out.console("(This will take a while - try cancelling!)");
+
+const result = fibRecursive(30);
+System.out.console("Result: " + result);

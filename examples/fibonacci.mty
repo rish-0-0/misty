@@ -1,0 +1,54 @@
+# Fibonacci Number Calculator in Misty
+
+# Recursive approach (elegant but slower)
+procedure fibRecursive(n) {
+  incase (n <= 1) {
+    returns n;
+  }
+  returns fibRecursive(n - 1) + fibRecursive(n - 2);
+}
+
+# Iterative approach (efficient and fast)
+procedure fibIterative(n) {
+  incase (n <= 1) {
+    returns n;
+  }
+
+  mut a = 0;
+  mut b = 1;
+  mut result = 0;
+
+  drift (mut i = 2; i <= n; i = i + 1) {
+    result = a + b;
+    a = b;
+    b = result;
+  }
+
+  returns result;
+}
+
+# Compare both approaches
+System.out.console("Recursive Fibonacci (works for small n):");
+System.out.console("fib(0) = " + fibRecursive(0));
+System.out.console("fib(1) = " + fibRecursive(1));
+System.out.console("fib(5) = " + fibRecursive(5));
+System.out.console("fib(10) = " + fibRecursive(10));
+System.out.console("fib(15) = " + fibRecursive(15));
+
+System.out.console("");
+System.out.console("Iterative Fibonacci (works for large n):");
+System.out.console("fib(0) = " + fibIterative(0));
+System.out.console("fib(1) = " + fibIterative(1));
+System.out.console("fib(5) = " + fibIterative(5));
+System.out.console("fib(10) = " + fibIterative(10));
+System.out.console("fib(20) = " + fibIterative(20));
+System.out.console("fib(30) = " + fibIterative(30));
+
+# Generate first N fibonacci numbers
+const n = 15;
+System.out.console("");
+System.out.console("First " + n + " Fibonacci numbers:");
+
+drift (mut i = 0; i < n; i = i + 1) {
+  System.out.console("F(" + i + ") = " + fibIterative(i));
+}

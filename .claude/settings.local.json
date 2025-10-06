@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm test)",
+      "Bash(npm install:*)",
+      "Bash(findstr:*)",
+      "Bash(npm run dev:*)",
+      "Bash(PORT=3000 npm run dev)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:*)",
+      "Bash(npx tsx:*)",
+      "Bash(if not exist scratch mkdir scratch)",
+      "Bash(move test_chained.ts scratch )",
+      "Bash(move test_closure_bug.ts scratch )",
+      "Bash(move test_duplicate.ts scratch )",
+      "Bash(move test_nested_procedure.ts scratch )",
+      "Bash(move test_new_features.ts scratch )",
+      "Bash(move test_run.ts scratch )",
+      "Bash(move test_ui_code.ts scratch )",
+      "Bash(cat:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm test:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

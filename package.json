@@ -1,0 +1,57 @@
+{
+  "name": "misty",
+  "version": "0.1.0",
+  "description": "Misty programming language - Born in the mist, before clarity.",
+  "type": "module",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rish-0-0/misty.git"
+  },
+  "keywords": [
+    "wasm",
+    "programming-language",
+    "assemblyscript",
+    "compiler"
+  ],
+  "author": "Rishabh Anand",
+  "license": "LGPL-2.1-only",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "tsx --test test/**/*.test.ts || mocha --require tsx test/**/*.test.ts",
+    "test:watch": "mocha --require tsx test/**/*.test.ts --watch",
+    "lint": "eslint src/**/*.ts ui/**/*.tsx --max-warnings 0",
+    "lint:fix": "eslint src/**/*.ts ui/**/*.tsx --fix",
+    "asbuild:debug": "asc assembly/index.ts --target debug --outFile build/debug.wasm --textFile build/debug.wat --sourceMap",
+    "asbuild:release": "asc assembly/index.ts --target release --outFile build/release.wasm --textFile build/release.wat --optimize",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
+    "clean": "rimraf dist build"
+  },
+  "dependencies": {
+    "preact": "^10.19.3"
+  },
+  "devDependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@lezer/highlight": "^1.2.1",
+    "@lezer/lr": "^1.4.2",
+    "@preact/preset-vite": "^2.8.1",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "assemblyscript": "^0.27.23",
+    "chai": "^4.4.1",
+    "codemirror": "^6.0.1",
+    "eslint": "^8.57.1",
+    "mocha": "^10.4.0",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.20.6",
+    "typescript": "^5.4.5",
+    "vite": "^5.1.4"
+  }
+}

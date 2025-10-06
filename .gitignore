@@ -137,3 +137,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Misty specific
+build/
+*.wasm
+*.wat
+test/*.js
+test/*.js.map
